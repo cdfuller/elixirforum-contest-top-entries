@@ -38,7 +38,7 @@ defmodule ContestParser.CLI do
     { "td", [], [user_str] } = user_row
 
     number = String.to_integer(number_str)
-    [ _, user ] = Regex.run(~r/\s([\w-]+)'s/, user_str)
+    [ _, user ] = Regex.run(~r/\s([\w-.]+)'s/, user_str)
     {user, number}
   end
 
