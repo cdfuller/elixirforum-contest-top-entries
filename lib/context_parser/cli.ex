@@ -65,9 +65,9 @@ defmodule ContestParser.CLI do
   end
 
   defp sources() do
-    [ %{ name: "PragProg", url: "https://pragprog.elixirforum.com/january" },
-      %{ name: "Manning", url: "https://manning.elixirforum.com/january" },
-      %{ name: "ElixirCasts", url: "https://elixircasts.elixirforum.com/january" }
+    [ %{ name: "PragProg", url: "https://pragprog.elixirforum.com/february" },
+      %{ name: "Manning", url: "https://manning.elixirforum.com/february" },
+      %{ name: "ElixirCasts", url: "https://elixircasts.elixirforum.com/february" }
     ]
   end
 end
