@@ -44,8 +44,8 @@ defmodule ContestParser.CLI do
 
   defp sort_entries(entries, target) do
     Enum.sort_by(entries, fn(entry) ->
-      { _, n } = entry
-      abs(target - n)
+      { _, number } = entry
+      max(number, target) - min(number, target)
     end)
   end
 
@@ -56,7 +56,7 @@ defmodule ContestParser.CLI do
     IO.puts("----\t ------\t ----")
     Enum.each(entries, fn(entry) ->
       { user, number } = entry
-      diff = abs(number - target)
+      diff= max(number, target) - min(number, target)
       # IO.puts("#{inspect number}\t diff: #{inspect diff} \t#{user}")
       IO.puts("#{inspect diff}\t #{inspect number}\t #{user}")
     end)
