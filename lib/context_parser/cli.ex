@@ -65,9 +65,13 @@ defmodule ContestParser.CLI do
   end
 
   defp sources() do
-    [ %{ name: "PragProg", url: "https://pragprog.elixirforum.com/february" },
-      %{ name: "Manning", url: "https://manning.elixirforum.com/february" },
-      %{ name: "ElixirCasts", url: "https://elixircasts.elixirforum.com/february" }
+    [ %{ name: "PragProg", url: "https://pragprog.elixirforum.com/#{current_month()}" },
+      %{ name: "Manning", url: "https://manning.elixirforum.com/#{current_month()}" },
+      %{ name: "ElixirCasts", url: "https://elixircasts.elixirforum.com/#{current_month()}" }
     ]
+  end
+
+  defp current_month() do
+    Timex.now |> Timex.format!("%B", :strftime) |> String.downcase
   end
 end

@@ -15,6 +15,7 @@ defmodule ContestParser.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
+      applications: [:timex],
       extra_applications: [:logger]
     ]
   end
@@ -24,6 +25,7 @@ defmodule ContestParser.MixProject do
     [
       {:floki, "~> 0.20.0"},
       {:httpoison, "~> 1.4"},
+      {:timex, "~> 3.5.0"},
     ]
   end
 
