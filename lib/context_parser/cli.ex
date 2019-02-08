@@ -65,13 +65,25 @@ defmodule ContestParser.CLI do
   end
 
   defp sources() do
-    [ %{ name: "PragProg", url: "https://pragprog.elixirforum.com/#{current_month()}" },
-      %{ name: "Manning", url: "https://manning.elixirforum.com/#{current_month()}" },
-      %{ name: "ElixirCasts", url: "https://elixircasts.elixirforum.com/#{current_month()}" }
+    month = Date.utc_today() |> current_month()
+    [
+      %{ name: "PragProg", url: "https://pragprog.elixirforum.com/#{month}" },
+      %{ name: "Manning", url: "https://manning.elixirforum.com/#{month}" },
+      %{ name: "ElixirCasts", url: "https://elixircasts.elixirforum.com/#{month}" }
     ]
   end
 
-  defp current_month() do
-    Timex.now |> Timex.format!("%B", :strftime) |> String.downcase
-  end
+  defp current_month(%Date{month: 1}), do: "january"
+  defp current_month(%Date{month: 2}), do: "february"
+  defp current_month(%Date{month: 3}), do: "march"
+  defp current_month(%Date{month: 4}), do: "april"
+  defp current_month(%Date{month: 5}), do: "may"
+  defp current_month(%Date{month: 6}), do: "june"
+  defp current_month(%Date{month: 7}), do: "july"
+  defp current_month(%Date{month: 8}), do: "august"
+  defp current_month(%Date{month: 9}), do: "september"
+  defp current_month(%Date{month: 10}), do: "october"
+  defp current_month(%Date{month: 11}), do: "november"
+  defp current_month(%Date{month: 12}), do: "december"
+
 end
